@@ -5,11 +5,20 @@
     <title>Flowency Portal</title>
     <script>
       // Single Page Apps for GitHub Pages
-      // https://github.com/rafgraph/spa-github-pages
-      // Store the path and redirect to index.html
-      sessionStorage.redirect = location.href;
+      // Store the current URL and redirect to base
+      var pathSegments = location.pathname.split('/').filter(function(segment) { return segment; });
+
+      // Remove the base path (portal) from segments if present
+      if (pathSegments[0] === 'portal') {
+        pathSegments.shift();
+      }
+
+      // Store the path for restoration
+      sessionStorage.redirect = '/' + pathSegments.join('/') + location.search + location.hash;
+
+      // Redirect to base index.html
+      location.replace(location.protocol + '//' + location.host + '/portal/');
     </script>
-    <meta http-equiv="refresh" content="0;URL='/portal/'">
   </head>
   <body>
   </body>
