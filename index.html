@@ -10,13 +10,8 @@
       (function() {
         var redirect = sessionStorage.redirect;
         delete sessionStorage.redirect;
-        if (redirect) {
-          // Restore the path within our base
-          var basePath = '/portal/';
-          var fullPath = location.protocol + '//' + location.host + basePath + redirect.replace(/^\//, '');
-          if (fullPath !== location.href) {
-            history.replaceState(null, null, fullPath);
-          }
+        if (redirect && redirect !== '/') {
+          history.replaceState(null, null, redirect);
         }
       })();
     </script>
