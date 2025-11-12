@@ -17,7 +17,7 @@ function Home() {
           </p>
           <a
             href="https://www.flowency.co.uk"
-            className="inline-block bg-flowency-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition"
+            className="inline-block bg-flowency-accent text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition"
           >
             Visit Flowency
           </a>

@@ -94,7 +94,7 @@ export default function PRD() {
           </p>
           <button
             onClick={handleLogout}
-            className="bg-flowency-blue text-white px-6 py-2 rounded-lg hover:bg-opacity-90"
+            className="bg-flowency-accent text-white px-6 py-2 rounded-lg hover:opacity-90"
           >
             Go Back
           </button>
@@ -123,7 +123,7 @@ export default function PRD() {
               disabled={!hasChanges || saveMutation.isPending}
               className={`px-6 py-2 rounded-lg font-semibold transition ${
                 hasChanges
-                  ? 'bg-flowency-blue text-white hover:bg-opacity-90'
+                  ? 'bg-flowency-accent text-white hover:opacity-90'
                   : 'bg-gray-200 text-gray-400 cursor-not-allowed'
               }`}
             >

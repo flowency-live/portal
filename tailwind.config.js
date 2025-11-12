@@ -7,8 +7,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        'flowency-blue': '#0066CC',
-        'flowency-dark': '#1a1a2e',
+        'flowency-blue': 'hsl(215, 25%, 27%)', // Dark slate blue (primary brand color)
+        'flowency-dark': 'hsl(215, 25%, 20%)', // Darker variant
+        'flowency-accent': 'hsl(24, 95%, 53%)', // Orange accent
+        'flowency-electric': 'hsl(189, 85%, 55%)', // Cyan electric
       },
     },
   },
