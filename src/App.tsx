@@ -1,8 +1,11 @@
-import { Route, Switch } from 'wouter';
+import { Route, Switch, Router } from 'wouter';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { queryClient } from './lib/queryClient';
 import Invite from './pages/Invite';
 import PRD from './pages/PRD';
+
+// Get base path from Vite config
+const basePath = import.meta.env.BASE_URL;
 
 function Home() {
   return (
@@ -30,22 +33,24 @@ function Home() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <Switch>
-        <Route path="/" component={Home} />
-        <Route path="/invite/:token" component={Invite} />
-        <Route path="/prd" component={PRD} />
-        <Route>
-          <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-            <div className="text-center">
-              <h1 className="text-4xl font-bold text-gray-800 mb-4">404</h1>
-              <p className="text-gray-600 mb-6">Page not found</p>
-              <a href="/" className="text-flowency-blue hover:underline">
-                Go Home
-              </a>
+      <Router base={basePath}>
+        <Switch>
+          <Route path="/" component={Home} />
+          <Route path="/invite/:token" component={Invite} />
+          <Route path="/prd" component={PRD} />
+          <Route>
+            <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+              <div className="text-center">
+                <h1 className="text-4xl font-bold text-gray-800 mb-4">404</h1>
+                <p className="text-gray-600 mb-6">Page not found</p>
+                <a href={basePath} className="text-flowency-blue hover:underline">
+                  Go Home
+                </a>
+              </div>
             </div>
-          </div>
-        </Route>
-      </Switch>
+          </Route>
+        </Switch>
+      </Router>
     </QueryClientProvider>
   );
 }
